@@ -146,6 +146,19 @@ class Cat:
         return Cat(self._name + other._name,
                    self._weight + other._weight)
 
+class ColoredCat(Cat):
+
+    def __init__(self, name, weight, color):
+        self._color = color
+        super().__init__(name, weight)
+
+    def __add__(self, other):
+        result = super().__add__(other)
+        result._color = self._color + other._color
+
+
+
+
 
 
 print(Cat.__bases__)

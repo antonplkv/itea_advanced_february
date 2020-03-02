@@ -47,18 +47,23 @@ func_test('zxcxzc', 'qwewdasdasdasqe')
 #         print('__________________')
 #     return wrapper
 #
-# def dec1(func):
-#     def wrapper(*args):
-#         print('*****************')
-#         func()
-#         print('*****************')
-#     return wrapper
-#
-# @dec
-# @dec1
-# def hello_world():
-#     print("hello world")
-#
+from functools import wraps
+def dec1(func):
+
+    @wraps(func)
+    def wrapper(*args):
+        print('*****************')
+        func()
+        print('*****************')
+    return wrapper
+
+#@dec
+@dec1
+def hello_world():
+    print("hello world")
+
+print(hello_world.__wrapped__)
+
 #
 # result = dec(dec1(hello_world))()
 #

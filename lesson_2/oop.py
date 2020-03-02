@@ -170,3 +170,66 @@ cat3 = cat1 + cat2 + cat2
 a = 0
 
 print(cat3._name, cat3._weight)
+
+
+class Vehicle:
+
+    def __init__(self, engine, color):
+        self._engine = engine
+        self._color = color
+
+    def move(self):
+        print('Moving')
+
+
+class Car(Vehicle):
+
+    def __init__(self, engine, color, num_of_doors, num_of_wheels):
+        super().__init__(engine, color)
+        self._num_of_wheels = num_of_wheels
+        self._num_of_doors = num_of_doors
+
+    def move(self):
+        super().move()
+        print(f'{self._num_of_doors}, {self._num_of_wheels}')
+
+
+car = Car('v-8', 'red', 4, 4)
+car.move()
+
+
+# class Shop:
+#
+#     SHOP_NAME = 'AUCHAN'
+#     total_sales = 0
+#
+#     def __init__(self, shop_addres, sold_goods):
+#         self._sold_goods = sold_goods
+#         self._shop_addres = shop_addres
+#         Shop.total_sales += sold_goods
+#
+#     def add_sold(self, quantity):
+#         self._sold_goods += quantity
+#         Shop.total_sales += quantity
+#
+# auchan1 = Shop('Kreschatyk', 3000)
+# auchan2 = Shop('Beresteiska', 1300)
+#
+# print(auchan1._sold_goods, auchan2._sold_goods, Shop.total_sales)
+
+
+to_square = lambda x, y: (x ** 2, y ** 2)
+
+list1 = [1, 2, 3, 4]
+list2 = [5, 6, 7, 8]
+
+result = map(to_square, list1, list2)
+
+print(tuple(result))
+
+
+
+result = filter(lambda x: not x % 2, list1)
+
+
+

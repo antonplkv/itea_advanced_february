@@ -1,13 +1,21 @@
+"""
+Для использования декораторов с методами, декораторы следует объявлять:
+1) Вне класса
+2) В другом классе помечая декоратором @staticmethod
+3) Внутри текущего класса еще одним классом
+"""
 class A:
 
-    @staticmethod
-    def dec(func):
-        def wrapper(*args):
-            func(*args)
+    class Decorators:
 
-        return wrapper
+        @staticmethod
+        def dec(func):
+            def wrapper(*args):
+                func(*args)
 
-    @dec
+            return wrapper
+
+    @Decorators.dec
     def do_smth(self, arg1, arg2):
         pass
 
